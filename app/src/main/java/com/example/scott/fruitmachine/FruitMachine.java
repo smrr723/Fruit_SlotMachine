@@ -11,6 +11,7 @@ import java.util.Random;
 public class FruitMachine {
 
     private ArrayList<Symbols> symbols;
+    private ArrayList<Symbols> slots;
     private int winnings = 1000;
     private int funds = 0;
 
@@ -20,6 +21,7 @@ public class FruitMachine {
         this.winnings = 0;
 //        initialised empty ArrayList below, which will take enum symbols (3).
         this.symbols = new ArrayList<>();
+        this.slots = new ArrayList<>();
     }
 
     public ArrayList<Symbols> getSymbols() {
@@ -29,6 +31,14 @@ public class FruitMachine {
         symbols.add(3, Symbols.STRAWBERRY);
         symbols.add(4, Symbols.WATERMELON);
         return symbols;
+    }
+
+    public int getNoOfSymbols(){
+        return getSymbols().size();
+    }
+
+    public ArrayList<Symbols> getSlots() {
+        return slots;
     }
 
     public void setSymbols(ArrayList<Symbols> symbols) {
@@ -51,9 +61,18 @@ public class FruitMachine {
         this.funds = funds;
     }
 
+    public int getRandomNumber(){
+        Random rand = new Random();
+        int listSize = getNoOfSymbols();
+        int random = rand.nextInt(listSize);
+        return random;
+    }
+
     public void spin(){
 //        if funds are more than 50;
-        for (int i=0; i < 3; i++){
+        int i = 0;
+        for (i=0; i < 3; i++) {
+            slots.add(i, symbols.get(getRandomNumber()));
 //            generate a random symbol/index, and put it into the index = i on the symbol arraylist
         }
 //        checkWinStatus()

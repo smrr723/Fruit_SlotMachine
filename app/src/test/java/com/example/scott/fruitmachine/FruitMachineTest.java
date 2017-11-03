@@ -28,11 +28,13 @@ public class FruitMachineTest {
         assertEquals(fruitMachine.getSymbols().get(0).getValue(), 25);
     }
 //
-//    @Test
-//    public void testSpinReturnsRandomSymbols() throws Exception {
-////         check that spin can put out 3 random symbols and that they get added to the symbol ArrayList
-////        check what happens when 3 symbols match
-//    }
+    @Test
+    public void testSpinReturnsRandomSymbols() throws Exception {
+//         check that spin can put out 3 random symbols and that they get added to the symbol ArrayList
+//        check what happens when 3 symbols match
+        fruitMachine.spin();
+        assertEquals(null, fruitMachine.getSlots());
+    }
 //
 //    @Test
 //    public void testWinningsAreUpdated() throws Exception {
