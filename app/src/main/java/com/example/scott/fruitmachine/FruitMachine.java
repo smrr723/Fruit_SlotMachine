@@ -25,7 +25,7 @@ public class FruitMachine {
     }
 
     public ArrayList<Symbols> getSymbols() {
-//        Refactor the below - method to loop through
+//        Refactor the below - method to loop through enums values?
         symbols.add(0, Symbols.CHERRY);
         symbols.add(1, Symbols.BANANA);
         symbols.add(2, Symbols.BIGWIN);
@@ -69,15 +69,23 @@ public class FruitMachine {
         return random;
     }
 
+    public int firstSlotVal(){
+        return this.getSlots().get(0).getValue();
+    }
+    public int totalSlotVal(){
+        int totalSlotVal = 0;
+        int i = 0;
+        for (i=0; i < 3; i++){
+            totalSlotVal += this.getSlots().get(i).getValue();
+        }
+        return totalSlotVal;
+    }
+
     public String checkWinStatus(){
-//        Refactor the below into separate method, or use a neater inbuilt Java method to total arrayList values.
-        int firstSlotVal = this.getSlots().get(0).getValue();
-        int totalSlotVal = this.getSlots().get(0).getValue() + this.getSlots().get(1).getValue() + this.getSlots().get(2).getValue();
-        if (totalSlotVal / firstSlotVal == 3){
+        if (this.totalSlotVal() / this.firstSlotVal() == 3){
             return "You win!";}
         else {
                 return "You lose!";
-
         }
     }
 

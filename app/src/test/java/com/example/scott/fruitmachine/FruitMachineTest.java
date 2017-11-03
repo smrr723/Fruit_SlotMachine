@@ -2,6 +2,8 @@ package com.example.scott.fruitmachine;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.*;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
@@ -54,4 +56,15 @@ public class FruitMachineTest {
 //    public void testPayoutMethodWorks() throws Exception {
 //// check that winnings are updated if the player chooses to payout
 //    }
+
+    @Test
+    public void testTotalSlotValue() throws Exception {
+        fruitMachine.spin();
+        assertEquals(30, fruitMachine.totalSlotVal());
+    }
+    @Test
+    public void testFirstSlotValue() throws Exception {
+        fruitMachine.spin();
+        assertEquals(10, fruitMachine.firstSlotVal());
+    }
 }
