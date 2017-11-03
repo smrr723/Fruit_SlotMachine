@@ -25,6 +25,7 @@ public class FruitMachine {
     }
 
     public ArrayList<Symbols> getSymbols() {
+//        Refactor the below - method to loop through
         symbols.add(0, Symbols.CHERRY);
         symbols.add(1, Symbols.BANANA);
         symbols.add(2, Symbols.BIGWIN);
@@ -69,7 +70,7 @@ public class FruitMachine {
     }
 
     public String checkWinStatus(){
-//        Refactor the below into separate method, or use a neater inbuild Java method to total arrayList values.
+//        Refactor the below into separate method, or use a neater inbuilt Java method to total arrayList values.
         int firstSlotVal = this.getSlots().get(0).getValue();
         int totalSlotVal = this.getSlots().get(0).getValue() + this.getSlots().get(1).getValue() + this.getSlots().get(2).getValue();
         if (totalSlotVal / firstSlotVal == 3){
@@ -79,6 +80,8 @@ public class FruitMachine {
 
         }
     }
+
+//    Java.util.Collections.frequency() could be used for the below;
 
     public void spin(){
 //        if funds are more than 50;
