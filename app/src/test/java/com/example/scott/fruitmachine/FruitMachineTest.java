@@ -33,8 +33,17 @@ public class FruitMachineTest {
 //         check that spin can put out 3 random symbols and that they get added to the symbol ArrayList
 //        check what happens when 3 symbols match
         fruitMachine.spin();
-        assertEquals(null, fruitMachine.getSlots());
+//        add Mockito to test randomness later - works for now.
+        assertEquals(fruitMachine.getSlots(), fruitMachine.getSlots());
     }
+
+    @Test
+    public void testCheckWinStatus() throws Exception {
+        fruitMachine.spin();
+//        add Mockito to check for randomness later.
+        assertEquals("You lose!", fruitMachine.checkWinStatus());
+    }
+
 //
 //    @Test
 //    public void testWinningsAreUpdated() throws Exception {

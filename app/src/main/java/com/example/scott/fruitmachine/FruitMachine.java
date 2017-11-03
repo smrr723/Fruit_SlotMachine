@@ -68,6 +68,18 @@ public class FruitMachine {
         return random;
     }
 
+    public String checkWinStatus(){
+//        Refactor the below into separate method, or use a neater inbuild Java method to total arrayList values.
+        int firstSlotVal = this.getSlots().get(0).getValue();
+        int totalSlotVal = this.getSlots().get(0).getValue() + this.getSlots().get(1).getValue() + this.getSlots().get(2).getValue();
+        if (totalSlotVal / firstSlotVal == 3){
+            return "You win!";}
+        else {
+                return "You lose!";
+
+        }
+    }
+
     public void spin(){
 //        if funds are more than 50;
         int i = 0;
@@ -75,6 +87,6 @@ public class FruitMachine {
             slots.add(i, symbols.get(getRandomNumber()));
 //            generate a random symbol/index, and put it into the index = i on the symbol arraylist
         }
-//        checkWinStatus()
+        this.checkWinStatus();
     }
 }
